@@ -1,7 +1,7 @@
 import React from 'react'; // import react module
 import Screen from './screen'; // Import our screen component from this directory
 import Button from './button'; // Import our button component from this directory
-
+/* eslint no-eval: 0 */
 
 
 

@@ -1,5 +1,6 @@
 import React from 'react'; //Import react module
 import ScreenRow from './screenRow';
+import PropTypes from 'prop-types';
 
 
 //create our screen component as a functional component
@@ -17,8 +18,8 @@ const Screen = (props) => {
 
 //Define our props expected from the parent component
 Screen.propTypes = {
-    question: React.PropTypes.string.isRequired,
-    answer: React.PropTypes.string.isRequired
+    question: PropTypes.string,
+    answer: PropTypes.string,
 }
 
 //export our component

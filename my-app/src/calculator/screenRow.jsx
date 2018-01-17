@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 //screen row component is written as a functional component
 //it reeicves and siaplyes (in an input field) a props (property) of value from
 //it's parent component
@@ -15,8 +15,8 @@ const ScreenRow = (props) => {
 //we descirbe the props (property) thatthe parent element is required to pass
 //into this component
 
-ScreenRow.propTypes = {
-    value: React.PropTypes.string.isRequired
+ScreenRow.props = {
+    value: PropTypes.string,
 }
 
 export default ScreenRow;
