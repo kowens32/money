@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Frame from './calculator/frame.jsx';
+import Graph from './calculator/graph.js';
 
 class Rent extends React.Component {
     render() {
@@ -105,4 +106,10 @@ ReactDOM.render(
 ReactDOM.render(
    <Frame />,
     document.getElementById('calculator')
+);
+
+
+ReactDOM.render(
+    <Graph />,
+    document.getElementById('react-container')
 );
