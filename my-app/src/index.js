@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Frame from './calculator/frame.jsx';
+import Frame from './calculator/frame.jsx';
 
 class Rent extends React.Component {
     render() {
@@ -95,12 +95,14 @@ class Game extends React.Component {
 
 
 // ========================================
-
+//
 ReactDOM.render(
     <Game />,
-
-
-    document.getElementById('root')
+    document.getElementById('game')
 );
 
 
+ReactDOM.render(
+   <Frame />,
+    document.getElementById('calculator')
+);
