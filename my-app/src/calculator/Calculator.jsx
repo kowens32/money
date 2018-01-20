@@ -6,7 +6,7 @@ import Button from './button'; // Import our button component from this director
 
 
 // create a class which extends react component
-class Frame extends React.Component {
+class Calculator extends React.Component {
     constructor() {
         super();
         // set our default state
@@ -19,7 +19,7 @@ class Frame extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    // Render function to creat component to be rendered on the DOM.
+    // Render function to create component to be rendered on the DOM.
     // This method must return a single parent element as you can see here.
     // The component is wrapped around () to make it a single expression.
     render() {
@@ -67,6 +67,8 @@ class Frame extends React.Component {
                 const answer = eval(this.state.question).toString();
                 // update answer in our state.
                 this.setState({ answer });
+                this.props.handleAnswer(answer);
+                this.setState({ question: ''});
                 break;
             }
             case 'Cls': {
@@ -83,8 +85,6 @@ class Frame extends React.Component {
     }
 }
 
-
-
-
 // export our frame component. To be used in our client/index.js file
-export default Frame;
+export default Calculator;
+

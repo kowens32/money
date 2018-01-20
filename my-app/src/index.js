@@ -1,115 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Frame from './calculator/frame.jsx';
-import Graph from './calculator/graph.js';
-
-class Rent extends React.Component {
-    render() {
-        return (
-            <button className="Rent">
-                Rent
-            </button>
-        );
-    }
-}
-
-class Utilities extends React.Component {
-    render() {
-        return (
-            <button className="Utilities">
-                Utilities
-            </button>
-        );
-    }
-}
+import Calculator from './calculator/Calculator.jsx';
+import Bills from './calculator/Bills';
 
 
-class Gas extends React.Component {
-    render() {
-        return (
-            <button className="Gas">
-                Gas
-            </button>
-        );
-    }
-}
+class Budget extends React.Component {
+    constructor(props) {
+        super(props)
 
-class Goals extends React.Component {
-    render() {
-        return (
-            <button className="Goals">
-                Goals
-            </button>
-        );
-    }
-}
-
-
-class Board extends React.Component {
-    renderRent(i) {
-        return <Rent />;
-    }
-    renderUtilities(i) {
-        return <Utilities />
-    }
-    renderGas(i) {
-        return <Gas />
+        this.state = {
+            answer: 0,
+            rent: 0,
+            utilities: 0,
+            gas: 0,
+            goals: 0
+        }
     }
 
-    renderGoals(i) {
-        return <Goals />
+    handleAnswer = (answer) => {
+        this.setState({ answer });
+    }
+
+    updateCategoryAmount = (category) => {
+        this.setState((state, props) => {
+            state[category] = state.answer;
+            return state
+        })
     }
 
     render() {
-        const status = "Let's Manage Your Budget!";
-
         return (
-            <div>
-                <div className="status">{status}</div>
-                <div className="board-row">
-                    {this.renderRent(0)}
-                    {this.renderUtilities(1)}
-                    {this.renderGas(2)}
-                    {this.renderGoals(3)}
+            <div className="budget">
+                <div className="calculator">
+                    <Calculator handleAnswer={this.handleAnswer}/>
                 </div>
+                <div className="bills">
+                    <Bills updateCategory={this.updateCategoryAmount}/>
+                </div>
+                {/*<div className="graph">*/}
+                    {/*<Graph bills={this.state} rent={this.state.rent}/>*/}
+                {/*</div>*/}
             </div>
         );
     }
 }
 
-class Game extends React.Component {
-    render() {
-        return (
-            <div className="game">
-                <div className="game-board">
-                    <Board />
-                </div>
-                <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
-                </div>
-            </div>
-        );
-    }
-}
-
-
-// ========================================
-//
 ReactDOM.render(
-    <Game />,
-    document.getElementById('game')
+    <Budget />,
+    document.getElementById('app')
 );
 
-
-ReactDOM.render(
-   <Frame />,
-    document.getElementById('calculator')
-);
-
-
-ReactDOM.render(
-    <Graph />,
-    document.getElementById('react-container')
-);
